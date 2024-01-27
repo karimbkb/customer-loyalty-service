@@ -90,6 +90,7 @@ class PointsHistoryControllerIntegrationTest {
     @Autowired private lateinit var customerPointsRepository: CustomerPointsRepository
 
     @Autowired
+    @Suppress("UnusedPrivateProperty")
     private lateinit var toPointsHistoryResponseDtoMapper: ToPointsHistoryResponseDtoMapper
 
     @BeforeEach

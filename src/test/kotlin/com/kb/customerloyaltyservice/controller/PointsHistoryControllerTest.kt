@@ -44,7 +44,7 @@ class PointsHistoryControllerTest {
     @MockkBean
     private lateinit var pointsHistoryService: PointsHistoryService
 
-    @Suppress("Unused")
+    @Suppress("Unused", "UnusedPrivateProperty")
     @SpykBean
     private lateinit var toPointsHistoryResponseDtoMapper: ToPointsHistoryResponseDtoMapper
 

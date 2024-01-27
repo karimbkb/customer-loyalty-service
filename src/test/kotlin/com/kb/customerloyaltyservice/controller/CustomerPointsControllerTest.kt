@@ -27,7 +27,7 @@ class CustomerPointsControllerTest {
     @MockkBean
     private lateinit var customerPointsService: CustomerPointsService
 
-    @Suppress("Unused")
+    @Suppress("Unused", "UnusedPrivateProperty")
     @SpykBean
     private lateinit var toCustomerPointsResponseDtoMapper: ToCustomerPointsResponseDtoMapper
 

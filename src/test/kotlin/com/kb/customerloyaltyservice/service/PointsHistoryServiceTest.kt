@@ -14,13 +14,13 @@ import io.mockk.junit5.MockKExtension
 import io.mockk.just
 import io.mockk.runs
 import io.mockk.verify
+import java.util.Optional
+import java.util.UUID
+import javax.persistence.EntityNotFoundException
 import org.assertj.core.api.Assertions.assertThat
 import org.assertj.core.api.Assertions.assertThatThrownBy
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
-import java.util.Optional
-import java.util.UUID
-import javax.persistence.EntityNotFoundException
 
 @ExtendWith(MockKExtension::class)
 class PointsHistoryServiceTest {
@@ -30,7 +30,7 @@ class PointsHistoryServiceTest {
     @MockK
     private lateinit var customerPointsRepository: CustomerPointsRepository
 
-    @Suppress("Unused")
+    @Suppress("Unused", "UnusedPrivateProperty")
     private val toPointsHistoryMapper = ToPointsHistoryMapper()
 
     @InjectMockKs
