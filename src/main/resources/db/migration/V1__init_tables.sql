@@ -8,8 +8,8 @@ SET client_min_messages = WARNING;
 
 CREATE SCHEMA IF NOT EXISTS customer_loyalty;
 -- Enums
-CREATE TYPE TransactionType AS ENUM ('add', 'subtract');
-CREATE TYPE LoyaltyType AS ENUM ('order', 'order_cancelled', 'manual_entry');
+CREATE TYPE TransactionType AS ENUM ('ADD', 'SUBTRACT');
+CREATE TYPE LoyaltyType AS ENUM ('ORDER', 'ORDER_CANCELLED', 'MANUAL_ENTRY');
 
 CREATE CAST (character varying as TransactionType) WITH INOUT AS IMPLICIT;
 CREATE CAST (character varying as LoyaltyType) WITH INOUT AS IMPLICIT;

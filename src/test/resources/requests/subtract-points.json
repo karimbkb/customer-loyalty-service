@@ -1,7 +1,7 @@
 {
   "customerId": "419d5f27-758e-4aaa-81ee-ecf27074eaf3",
-  "points": 6,
-  "transactionType": "add",
-  "loyaltyType": "order",
+  "points": 10,
+  "transactionType": "SUBTRACT",
+  "loyaltyType": "ORDER",
   "reason": "Order with number #436272986"
 }

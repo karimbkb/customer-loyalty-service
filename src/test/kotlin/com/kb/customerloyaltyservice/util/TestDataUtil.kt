@@ -10,23 +10,26 @@ import org.json.simple.parser.JSONParser
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.time.LocalDateTime
-import java.util.*
+import java.util.UUID
 
 class TestDataUtil {
     companion object {
         const val GET_POINTS_HISTORY = "/api/v1/points-history/{id}"
         const val GET_POINTS_HISTORY_BY_CUSTOMER_ID = "/api/v1/points-history/customer/{customerId}"
         const val POST_POINTS_HISTORY = "/api/v1/points-history"
-        const val SHORT_URL_DELETE = "/api/v1/points-history"
+        const val DELETE_POINTS_HISTORY = "/api/v1/points-history/{id}"
 
         const val GET_CUSTOMER_POINTS_BY_CUSTOMER_ID = "/api/v1/customer-points/{customerId}"
 
-        val POINTS_ID = UUID.fromString("bc3e671d-06b3-49ed-8608-11b058d7af04")
-        val POINTS_ID_2 = UUID.fromString("1da2748c-5f28-444f-9b0b-6b71b97d00a5")
-        val CUSTOMER_ID = UUID.fromString("419d5f27-758e-4aaa-81ee-ecf27074eaf3")
-        val CUSTOMER_ID_2 = UUID.fromString("cf1f7a3c-3ddc-44b0-ade4-b15d5a7d23c3")
-
-        val CUSTOMER_POINTS_ID = UUID.fromString("40ef642b-8a0b-4737-a84f-f4deb551ed4e")
+        private val POINTS_ID_2: UUID = UUID.fromString("1da2748c-5f28-444f-9b0b-6b71b97d00a5")
+        val POINTS_ID: UUID = UUID.fromString("40ef642b-8a0b-4737-a84f-f4deb551ed4e")
+        val POINTS_HISTORY_ID: UUID = UUID.fromString("ac98b028-a523-4aa3-b8cc-2d0ef3a1223d")
+        val POINTS_HISTORY_ID_2: UUID = UUID.fromString("ea10e9cc-eab8-434a-a756-56e4b6368d1f")
+        val CUSTOMER_ID: UUID = UUID.fromString("419d5f27-758e-4aaa-81ee-ecf27074eaf3")
+        val CUSTOMER_ID_2: UUID = UUID.fromString("cf1f7a3c-3ddc-44b0-ade4-b15d5a7d23c3")
+        const val REASON: String = "Order with number #436272986"
+        const val REASON_2: String = "Order with number #436272361"
+        val CUSTOMER_POINTS_ID: UUID = UUID.fromString("40ef642b-8a0b-4737-a84f-f4deb551ed4e")
 
         fun buildPointsHistoryCreateDTO(): PointsHistoryCreateDTO {
             return PointsHistoryCreateDTO(
@@ -34,7 +37,7 @@ class TestDataUtil {
                 points = 6,
                 transactionType = TransactionType.ADD,
                 loyaltyType = LoyaltyType.ORDER,
-                reason = "Order with number #436272986"
+                reason = REASON,
             )
         }
 
@@ -46,8 +49,8 @@ class TestDataUtil {
                 points = 6,
                 transactionType = TransactionType.ADD,
                 loyaltyType = LoyaltyType.ORDER,
-                reason = "Order with number #436272986",
-                createdAt = LocalDateTime.now()
+                reason = REASON,
+                createdAt = LocalDateTime.now(),
             )
         }
 
@@ -60,8 +63,8 @@ class TestDataUtil {
                     points = 6,
                     transactionType = TransactionType.ADD,
                     loyaltyType = LoyaltyType.ORDER,
-                    reason = "Order with number #436272986",
-                    createdAt = LocalDateTime.now()
+                    reason = REASON,
+                    createdAt = LocalDateTime.now(),
                 ),
                 PointsHistory(
                     id = UUID.fromString("ce5a9cc4-f2aa-4b1b-9d08-a80dcbb98103"),
@@ -70,15 +73,15 @@ class TestDataUtil {
                     points = 3,
                     transactionType = TransactionType.SUBTRACT,
                     loyaltyType = LoyaltyType.MANUAL_ENTRY,
-                    reason = "",
-                    createdAt = LocalDateTime.now()
-                )
+                    reason = REASON,
+                    createdAt = LocalDateTime.now(),
+                ),
             )
         }
 
         fun buildCustomerPoints(): CustomerPoints {
             return CustomerPoints(
-                id = CUSTOMER_POINTS_ID,
+                id = POINTS_ID,
                 customerId = CUSTOMER_ID,
                 totalPoints = 99,
                 pointsHistory = emptyList(),
