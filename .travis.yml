@@ -1,0 +1,24 @@
+#  * GITHUB_TOKEN
+#  * CODECOV_TOKEN
+
+sudo: required
+language: java
+
+os: linux
+dist: trusty
+jdk: oraclejdk17
+
+services:
+  - docker
+
+cache:
+  directories:
+    - $HOME/.m2
+
+script:
+  - git clone https://github.com/karimbkb/customer-loyalty-service.git
+  - cd customer-loyalty-service
+  - mvn clean install
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
