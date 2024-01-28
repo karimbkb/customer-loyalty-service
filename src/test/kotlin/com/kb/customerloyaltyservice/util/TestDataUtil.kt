@@ -5,12 +5,12 @@ import com.kb.customerloyaltyservice.entity.CustomerPoints
 import com.kb.customerloyaltyservice.entity.PointsHistory
 import com.kb.customerloyaltyservice.enums.LoyaltyType
 import com.kb.customerloyaltyservice.enums.TransactionType
+import org.json.simple.JSONObject
+import org.json.simple.parser.JSONParser
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.time.LocalDateTime
 import java.util.UUID
-import org.json.simple.JSONObject
-import org.json.simple.parser.JSONParser
 
 @Suppress("UtilityClassWithPublicConstructor")
 class TestDataUtil {

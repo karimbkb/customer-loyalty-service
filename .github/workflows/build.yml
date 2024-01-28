@@ -19,6 +19,15 @@ jobs:
           java-version: '17'
           distribution: 'liberica'
 
+      - name: Check Kotlin Format
+        run: mvn spotless:check
+
+      - name: Run Static Code Analyzer
+        run: mvn detekt:check
+
+      - name: Run Test Cases
+        run: mvn test
+
       - name: Build with Maven
         run: mvn clean install
 
