@@ -4,7 +4,6 @@ import com.kb.customerloyaltyservice.enums.LoyaltyType
 import com.kb.customerloyaltyservice.enums.TransactionType
 import org.hibernate.annotations.CreationTimestamp
 import org.hibernate.annotations.GenericGenerator
-import org.hibernate.annotations.Type
 import java.time.LocalDateTime
 import java.util.UUID
 import javax.persistence.Entity
@@ -18,15 +17,17 @@ import javax.persistence.Table
 @Table(name = "points_history", schema = "customer_loyalty")
 data class PointsHistory(
     @Id
-    @Type(type = "pg-uuid")
     @GeneratedValue(generator = "uuid2")
     @GenericGenerator(name = "uuid2", strategy = "uuid2")
     val id: UUID?,
-    @Type(type = "pg-uuid") var pointsId: UUID?,
-    @Type(type = "pg-uuid") val customerId: UUID,
+    var pointsId: UUID?,
+    val customerId: UUID,
     val points: Int,
-    @Enumerated(EnumType.STRING) val transactionType: TransactionType,
-    @Enumerated(EnumType.STRING) var loyaltyType: LoyaltyType,
+    @Enumerated(EnumType.STRING)
+    val transactionType: TransactionType,
+    @Enumerated(EnumType.STRING)
+    var loyaltyType: LoyaltyType,
     val reason: String,
-    @CreationTimestamp val createdAt: LocalDateTime?,
+    @CreationTimestamp
+    val createdAt: LocalDateTime?,
 )
