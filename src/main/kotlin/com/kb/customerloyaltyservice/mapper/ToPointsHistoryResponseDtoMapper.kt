@@ -9,7 +9,6 @@ class ToPointsHistoryResponseDtoMapper : (PointsHistory) -> PointsHistoryRespons
     override fun invoke(pointsHistory: PointsHistory): PointsHistoryResponseDTO {
         return PointsHistoryResponseDTO(
             id = pointsHistory.id,
-            customerId = pointsHistory.customerId,
             points = pointsHistory.points,
             transactionType = pointsHistory.transactionType,
             loyaltyType = pointsHistory.loyaltyType,

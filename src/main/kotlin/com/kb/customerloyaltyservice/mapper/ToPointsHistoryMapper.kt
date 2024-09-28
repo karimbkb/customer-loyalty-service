@@ -8,14 +8,10 @@ import org.springframework.stereotype.Component
 class ToPointsHistoryMapper : (PointsHistoryCreateDTO) -> PointsHistory {
     override fun invoke(pointsHistoryCreateDTO: PointsHistoryCreateDTO): PointsHistory {
         return PointsHistory(
-            null,
-            null,
-            customerId = pointsHistoryCreateDTO.customerId,
             points = pointsHistoryCreateDTO.points,
             transactionType = pointsHistoryCreateDTO.transactionType,
             loyaltyType = pointsHistoryCreateDTO.loyaltyType,
             reason = pointsHistoryCreateDTO.reason,
-            null,
         )
     }
 }

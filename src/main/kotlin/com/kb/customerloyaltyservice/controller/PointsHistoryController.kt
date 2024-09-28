@@ -9,8 +9,6 @@ import io.swagger.annotations.Api
 import io.swagger.annotations.ApiOperation
 import mu.KLogging
 import org.springframework.http.HttpStatus.CREATED
-import org.springframework.http.HttpStatus.NO_CONTENT
-import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
@@ -39,16 +37,7 @@ class PointsHistoryController(
         @PathVariable("id") id: UUID,
     ): PointsHistory {
         logger.info("Getting customer points record by id [{}]", id)
-        return pointsHistoryService.getCustomerPointsHistoryById(id)
-    }
-
-    @GetMapping("/customer/{customerId}")
-    @ApiOperation(value = "Get points history by customer id")
-    fun getAllCustomerPointsHistory(
-        @PathVariable("customerId") customerId: UUID,
-    ): List<PointsHistory> {
-        logger.info("Getting all customer points history by customer id [{}]", customerId)
-        return pointsHistoryService.getAllCustomerPointsHistoryByCustomerId(customerId)
+        return pointsHistoryService.getPointsHistoryById(id)
     }
 
     @PostMapping
@@ -61,15 +50,5 @@ class PointsHistoryController(
         return toPointsHistoryResponseDtoMapper(
             pointsHistoryService.createPointsHistory(pointsHistoryCreateDTO),
         )
-    }
-
-    @DeleteMapping("/{id}")
-    @ResponseStatus(NO_CONTENT)
-    @ApiOperation(value = "Delete points by id")
-    fun deletePointsHistory(
-        @PathVariable id: UUID,
-    ) {
-        logger.info("Deleting customer points history by id [{}]", id)
-        return pointsHistoryService.deletePointsHistory(id)
     }
 }

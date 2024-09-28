@@ -18,7 +18,6 @@ class TestDataUtil {
         const val GET_POINTS_HISTORY = "/api/v1/points-history/{id}"
         const val GET_POINTS_HISTORY_BY_CUSTOMER_ID = "/api/v1/points-history/customer/{customerId}"
         const val POST_POINTS_HISTORY = "/api/v1/points-history"
-        const val DELETE_POINTS_HISTORY = "/api/v1/points-history/{id}"
 
         const val GET_CUSTOMER_POINTS_BY_CUSTOMER_ID = "/api/v1/customer-points/{customerId}"
 
@@ -46,7 +45,6 @@ class TestDataUtil {
             return PointsHistory(
                 id = UUID.fromString("e39f442a-46bc-4ec1-99d9-e76a7cca737a"),
                 pointsId = POINTS_ID,
-                customerId = CUSTOMER_ID,
                 points = 6,
                 transactionType = TransactionType.ADD,
                 loyaltyType = LoyaltyType.ORDER,
@@ -60,7 +58,6 @@ class TestDataUtil {
                 PointsHistory(
                     id = UUID.fromString("e39f442a-46bc-4ec1-99d9-e76a7cca737a"),
                     pointsId = POINTS_ID,
-                    customerId = CUSTOMER_ID,
                     points = 6,
                     transactionType = TransactionType.ADD,
                     loyaltyType = LoyaltyType.ORDER,
@@ -70,7 +67,6 @@ class TestDataUtil {
                 PointsHistory(
                     id = UUID.fromString("ce5a9cc4-f2aa-4b1b-9d08-a80dcbb98103"),
                     pointsId = POINTS_ID_2,
-                    customerId = CUSTOMER_ID_2,
                     points = 3,
                     transactionType = TransactionType.SUBTRACT,
                     loyaltyType = LoyaltyType.MANUAL_ENTRY,

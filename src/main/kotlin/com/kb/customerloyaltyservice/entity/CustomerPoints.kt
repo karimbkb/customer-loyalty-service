@@ -1,8 +1,8 @@
 package com.kb.customerloyaltyservice.entity
 
-import org.hibernate.annotations.CreationTimestamp
 import org.hibernate.annotations.GenericGenerator
 import org.hibernate.annotations.UpdateTimestamp
+import java.io.Serializable
 import java.time.LocalDateTime
 import java.util.UUID
 import javax.persistence.CascadeType
@@ -23,11 +23,14 @@ data class CustomerPoints(
     val id: UUID? = null,
     val customerId: UUID,
     var totalPoints: Int,
-    @JoinColumn(name = "customerId")
-    @OneToMany(cascade = [CascadeType.PERSIST], orphanRemoval = true, fetch = FetchType.EAGER)
+    @JoinColumn(name = "pointsId", referencedColumnName = "id")
+    @OneToMany(cascade = [CascadeType.PERSIST], orphanRemoval = true, fetch = FetchType.LAZY)
     val pointsHistory: List<PointsHistory> = emptyList(),
-    @CreationTimestamp
-    val createdAt: LocalDateTime? = null,
+    val createdAt: LocalDateTime? = LocalDateTime.now(),
     @UpdateTimestamp
     val updatedAt: LocalDateTime? = null,
-)
+) : Serializable {
+    companion object {
+        private const val serialVersionUID = 84738928374749292L
+    }
+}

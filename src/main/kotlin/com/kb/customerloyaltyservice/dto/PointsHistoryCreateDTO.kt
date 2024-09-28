@@ -44,7 +44,6 @@ data class PointsHistoryCreateDTO(
         example = "Order with number #436272986",
         dataType = "String",
     )
-    @field:NotNull
     @field:NotEmpty
     val reason: String,
 )

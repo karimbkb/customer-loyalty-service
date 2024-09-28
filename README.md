@@ -78,3 +78,11 @@ Detekt was used in this project. (https://github.com/detekt/detekt)
 ```
 mvn detekt:check
 ```
+
+## Check Kotlin Format
+
+Spotless was used in this project. (https://github.com/diffplug/spotless)
+
+```
+mvn spotless:check
+```

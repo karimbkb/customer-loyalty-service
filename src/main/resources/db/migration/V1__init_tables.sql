@@ -18,7 +18,6 @@ CREATE TABLE IF NOT EXISTS customer_loyalty.points_history
 (
     id                  UUID NOT NULL,
     points_id           UUID NOT NULL,
-    customer_id         UUID NOT NULL,
     points              INTEGER NOT NULL,
     transaction_type    TransactionType NOT NULL,
     loyalty_type        LoyaltyType NOT NULL,
@@ -39,3 +38,4 @@ ALTER TABLE ONLY customer_loyalty.points_history ADD CONSTRAINT points_history_p
 ALTER TABLE ONLY customer_loyalty.customer_points ADD CONSTRAINT points_pkey PRIMARY KEY (id);
 CREATE UNIQUE INDEX points_customer_id_unique_index ON customer_loyalty.customer_points (customer_id);
 ALTER TABLE ONLY customer_loyalty.points_history ADD CONSTRAINT points_history_points_id_fk FOREIGN KEY (points_id) REFERENCES customer_loyalty.customer_points(id);
+

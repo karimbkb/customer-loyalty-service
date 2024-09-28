@@ -7,7 +7,6 @@ import java.util.UUID
 
 data class PointsHistoryResponseDTO(
     val id: UUID?,
-    val customerId: UUID,
     val points: Int,
     val transactionType: TransactionType,
     val loyaltyType: LoyaltyType,
